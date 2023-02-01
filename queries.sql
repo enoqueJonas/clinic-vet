@@ -37,6 +37,30 @@ ROLLBACK;
 
 BEGIN;
 
+DELETE from animals;
+
+ROLLBACK;
+
+/* ------------------------------------------------------------- */
+
+BEGIN;
+
+DELETE from animals 
+    WHERE date_of_birth > '2022/01/01';
+
+SAVEPOINT sp1;
+
+UPDATE animals SET meightk_kg = meightk_kg * -1;
+
+UPDATE animals set meightk_kg = meightk_kg * -1
+    WHERE meightk_kg < 0;
+
+COMMIT;
+
+/* ------------------------------------------------------------- */
+
+BEGIN;
+
 UPDATE animals set species = 'digimon'
     WHERE name like '%mon';
 
