@@ -87,3 +87,33 @@ SELECT species, MAX(meightk_kg), MIN(meightk_kg) from animals
 SELECT species, AVG(escape_attemps) from animals
     WHERE EXTRACT('Year' from date_of_birth) BETWEEN 1990 AND 2000
     GROUP BY species;
+
+/* ------------------------------------------------------------- */
+
+SELECT o.full_name, a.name from animals a
+    JOIN owners o on o.id = a.owner_id
+        WHERE o.full_name = 'Melody Pond';
+
+SELECT a.name, s.name from animals a
+    JOIN species s ON a.species_id = s.id
+        WHERE s.name = 'Pokemon';
+
+SELECT o.full_name, a.name from owners o
+    LEFT JOIN animals a ON o.id = a.owner_id;
+
+SELECT s.name, count(a.species_id) from species s
+    JOIN animals a ON s.id = a.species_id
+        GROUP BY s.name;
+
+SELECT a.name, o.full_name from animals a
+    JOIN owners o ON a.owner_id = o.id
+        JOIN species s ON a.species_id = s.id
+            WHERE s.name = 'Digimon' AND o.full_name = 'Jennifer Orwell';
+
+SELECT a.name, a.escape_attemps from animals a
+    JOIN owners o ON a.owner_id = o.id
+        WHERE a.escape_attemps = 0 AND o.full_name = 'Dean Winchester';
+
+SELECT o.full_name, count(a.owner_id) as owns from owners o
+    JOIN animals a ON o.id = a.owner_id
+        GROUP by o.full_name;
