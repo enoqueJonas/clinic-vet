@@ -116,4 +116,5 @@ SELECT a.name, a.escape_attemps from animals a
 
 SELECT o.full_name, count(a.owner_id) as owns from owners o
     JOIN animals a ON o.id = a.owner_id
-        GROUP by o.full_name;
+        GROUP by o.full_name
+            HAVING MAX(a.owner_id) = 3;
