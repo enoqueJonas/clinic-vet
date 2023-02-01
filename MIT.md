@@ -1,8 +1,5 @@
 ## Copyright 2023, Enoque Macanda
 
-###### Please delete this line and the next one
-###### APP TYPE can be a webpage/website, a web app, a software and so on
-
 Permission is hereby granted, free of charge, to any person obtaining a copy of this Vet clicnic database app and associated documentation files, to deal in the Vet clicnic database app  without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Vet clicnic database app , and to permit persons to whom the Vet clicnic database app  is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Vet clicnic database app .
