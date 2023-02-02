@@ -54,5 +54,5 @@ CREATE TABLE visits (
     animal_id int NOT NULL REFERENCES animals(id) ON DELETE cascade,
     vet_id int NOT NULL REFERENCES vets(id) ON DELETE cascade,
     date_of_visit date NOT NULL,
-    PRIMARY KEY(animal_id, vet_id)
+    PRIMARY KEY(animal_id, vet_id, date_of_visit)
 );
