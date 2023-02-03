@@ -121,15 +121,12 @@ SELECT o.full_name, count(a.owner_id) as owns from owners o
 
 /* ------------------------------------------------------------- */
 
--- SELECT max(vi.date_of_visit), vi.animal_id from visits vi
---     GROUP BY vi.animal_id, vi.vet_id
---     HAVING vi.vet_id = (SELECT id from vets 
---                         WHERE name = 'William Tatcher');
-
--- SELECT vi.animal_id from visits vi
---     GROUP BY vi.animal_id, vi.vet_id
---     HAVING vi.vet_id = (SELECT id from vets 
---                         WHERE name = 'William Tatcher');
+SELECT a.name from animals a 
+    JOIN visits v ON a.id = v.animal_id
+    JOIN vets ve ON v.vet_id = ve.id
+        WHERE v.date_of_visit = (SELECT MAX(date_of_visit) from visits 
+                                    WHERE vet_id = (SELECT id from vets 
+                                                        WHERE name = 'William Tatcher'));       
 
 SELECT count(*) from visits
     WHERE vet_id = (SELECT id from vets WHERE name = 'Stephie Mendez');
